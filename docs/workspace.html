@@ -1,15 +1,67 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>My workspace · Seeker</title><meta name="description" content="Your Seeker workday, learning assignments, and mentor feedback.">
-<link rel="icon" href="favicon.svg"><link rel="stylesheet" href="portal.css"><link rel="stylesheet" href="workspace.css">
-<script>try { document.documentElement.dataset.theme=localStorage.getItem('seeker-theme') || (matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'); } catch (_) {}</script>
-</head>
-<body>
-<header class="site-header"><a class="brand" href="./"><span class="brand-mark" aria-hidden="true">s.</span>seeker<span class="brand-dot">/</span></a><nav class="workspace-header-nav" aria-label="Main"><a href="./">Curriculum</a><button id="sign-out" hidden type="button">Sign out</button></nav></header>
-<main class="workspace-main" id="workspace-main" tabindex="-1"><p>Connecting to your workspace…</p></main>
-<div id="workspace-message" class="workspace-message" role="status" aria-live="polite"></div>
-<noscript>JavaScript is needed to sign in and use your private workspace.</noscript>
-<script src="supabase-config.js"></script><script src="progress-store.js"></script><script type="module" src="workspace.js"></script>
-</body></html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My workspace · Seeker</title>
+    <meta
+      name="description"
+      content="Your Seeker workday, learning assignments, and mentor feedback."
+    />
+    <link rel="icon" href="favicon.svg" />
+    <link rel="stylesheet" href="portal.css" />
+    <link rel="stylesheet" href="workspace.css" />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("seeker-theme") ||
+          (matchMedia("(prefers-color-scheme:dark)").matches
+            ? "dark"
+            : "light");
+      } catch (_) {}
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./"
+        ><span class="brand-mark" aria-hidden="true">s.</span>seeker<span
+          class="brand-dot"
+          >/</span
+        ></a
+      >
+      <nav class="workspace-header-nav" aria-label="Main">
+        <a href="./">Curriculum</a
+        ><button id="sign-out" hidden type="button">Sign out</button>
+      </nav>
+    </header>
+    <main class="workspace-main" id="workspace-main" tabindex="-1">
+      <p>Connecting to your workspace…</p>
+    </main>
+    <div
+      id="workspace-message"
+      class="workspace-message"
+      role="status"
+      aria-live="polite"
+    ></div>
+    <noscript
+      >JavaScript is needed to sign in and use your private workspace.</noscript
+    >
+    <script src="supabase-config.js"></script>
+    <script src="progress-store.js"></script>
+    <script type="module">
+      import("./workspace.js").catch(() => {
+        const main = document.getElementById("workspace-main");
+        main.replaceChildren();
+        const title = document.createElement("h1");
+        title.textContent = "Unable to connect";
+        const text = document.createElement("p");
+        text.textContent =
+          "Check your internet connection and reload the workspace. Your saved records have not been changed.";
+        const retry = document.createElement("button");
+        retry.textContent = "Reload workspace";
+        retry.addEventListener("click", () => location.reload());
+        main.append(title, text, retry);
+      });
+    </script>
+  </body>
+</html>

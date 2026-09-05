@@ -22,6 +22,17 @@ jobs:
         run: supabase db lint --local --level error
       - name: Verify Auth, data isolation, attendance and progression
         run: node --test tests/workspace.integration.test.mjs
+      - name: Show startup errors
+        if: failure()
+        run: |
+          python3 - <<'PYLOG'
+          import pathlib, re
+          p = pathlib.Path('/tmp/seeker-local-start.log')
+          if p.exists():
+              for line in p.read_text().splitlines():
+                  if re.search(r'error|failed|fatal|unhealthy', line, re.I) and not re.search(r'key|secret|token|password', line, re.I):
+                      print(line)
+          PYLOG
       - name: Stop local backend
         if: always()
         run: supabase stop
