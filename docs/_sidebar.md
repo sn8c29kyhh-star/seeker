@@ -54,3 +54,10 @@
 - **🚀 GitHub Tracking Guides**
   - [📊 QA Kanban Board Guide](guides/github-kanban-guide.md)
   - [🌐 GitHub Pages Setup Guide](guides/github-pages-guide.md)
+
+- **🧑‍🏫 Instructor Toolkit**
+  - [📖 Instructor SOP & Guide](instructor/README.md)
+  - [📋 New Student Setup Checklist](instructor/checklists/new-student-setup-checklist.md)
+  - [📧 Student Welcome Email Template](instructor/templates/student-welcome-message.md)
+  - [📊 Weekly Evaluation Rubric](instructor/templates/weekly-evaluation-rubric.md)
+  - [🎙️ Mock Interview Scoring Sheet](instructor/templates/mock-interview-scoring-sheet.md)

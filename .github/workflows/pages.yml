@@ -34,9 +34,10 @@ jobs:
 
       - name: Sync Curriculum into Docs
         run: |
-          rm -rf docs/curriculum docs/guides
+          rm -rf docs/curriculum docs/guides docs/instructor
           cp -r curriculum docs/curriculum
           cp -r guides docs/guides
+          cp -r instructor docs/instructor
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
