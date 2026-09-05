@@ -346,11 +346,16 @@ test("mentor bootstrap requires administrator authorization and verified email",
         email,
         password: randomUUID() + "Qa9!",
         email_confirm: false,
-        user_metadata: { display_name: "Bootstrap mentor" },
+        user_metadata: { full_name: "Bootstrap mentor", role: "mentor" },
       },
     });
     assert.equal(result.status, 200);
     id = result.data.id;
+    assert.equal(
+      sql(`select display_name from public.profiles where id='${id}'`),
+      "Bootstrap mentor",
+      "Google-style profile name is populated",
+    );
     assert.equal(
       sql(`select role from public.profiles where id='${id}'`),
       "student",

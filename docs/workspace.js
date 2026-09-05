@@ -74,7 +74,7 @@ function safeLink(url, label = "Open submitted work") {
   }
 }
 function authScreen(mode = "login") {
-  root.innerHTML = `<section class="workspace-panel auth-panel"><p class="eyebrow">SEEKER / YOUR WORKSPACE</p><h1>${recovering ? "Choose a new password" : mode === "signup" ? "Create your account" : "Welcome back"}</h1><p class="muted">${recovering ? "Use a new password with at least 10 characters." : "Your attendance, assignments, and mentor feedback in one place."}</p><form id="auth-form">${!recovering ? field("email", "Email address", "email") : ""}${mode === "signup" ? field("display_name", "Full name") : ""}${mode !== "reset" ? field("password", recovering ? "New password" : "Password", "password") : ""}<button class="primary" type="submit">${recovering ? "Save password" : mode === "signup" ? "Create account" : mode === "reset" ? "Send reset link" : "Sign in"}</button></form>${!recovering ? '<div class="inline-actions"><button id="auth-switch" type="button">' + (mode === "signup" ? "Already registered? Sign in" : "Create an account") + '</button><button id="auth-reset" type="button">Forgot password?</button></div>' : ""}<p class="muted">New candidates need email confirmation and mentor enrollment before starting work. Your mentor assigns your schedule.</p></section>`;
+  root.innerHTML = `<section class="workspace-panel auth-panel"><p class="eyebrow">SEEKER / YOUR WORKSPACE</p><h1>${recovering ? "Choose a new password" : mode === "signup" ? "Create your account" : "Welcome back"}</h1><p class="muted">${recovering ? "Use a new password with at least 10 characters." : "Your attendance, assignments, and mentor feedback in one place."}</p>${!recovering && mode !== "reset" ? '<form id="google-form"><button class="google-sign-in" type="submit">Continue with Google</button><p class="muted">Sign in or create an account. No Seeker password or confirmation email needed.</p></form><div class="auth-divider"><span>or use email</span></div>' : ""}<form id="auth-form">${!recovering ? field("email", "Email address", "email") : ""}${mode === "signup" ? field("display_name", "Full name") : ""}${mode !== "reset" ? field("password", recovering ? "New password" : "Password", "password") : ""}<button class="primary" type="submit">${recovering ? "Save password" : mode === "signup" ? "Create account" : mode === "reset" ? "Send reset link" : "Sign in"}</button></form>${!recovering ? '<div class="inline-actions"><button id="auth-switch" type="button">' + (mode === "signup" ? "Already registered? Sign in" : "Create an account") + '</button><button id="auth-reset" type="button">Forgot password?</button></div>' : ""}<p class="muted">New candidates need mentor enrollment before starting work. Email and password signups also require an email confirmation.</p></section>`;
   document
     .getElementById("auth-switch")
     ?.addEventListener("click", () =>
@@ -83,6 +83,17 @@ function authScreen(mode = "login") {
   document
     .getElementById("auth-reset")
     ?.addEventListener("click", () => authScreen("reset"));
+  bindForm("google-form", async () => {
+    checked(
+      await client.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: location.origin + location.pathname,
+          queryParams: { prompt: "select_account" },
+        },
+      }),
+    );
+  });
   bindForm("auth-form", async (values) => {
     if (recovering) {
       checked(
@@ -581,6 +592,11 @@ if (!config?.url || !config?.publishableKey) {
   root.innerHTML =
     '<section class="workspace-panel"><h1>Workspace setup is in progress</h1><p>The course is available while the private workspace is being connected.</p><a href="./">Return to the curriculum</a></section>';
 } else {
+  // Capture OAuth failures before the Auth client consumes the callback URL.
+  const callbackParams = new URLSearchParams(location.hash.slice(1));
+  const callbackError =
+    callbackParams.get("error") ||
+    new URLSearchParams(location.search).get("error");
   client = createClient(config.url, config.publishableKey, {
     auth: {
       persistSession: true,
@@ -613,9 +629,17 @@ if (!config?.url || !config?.publishableKey) {
       authScreen();
     }
   });
-  const session = checked(await client.auth.getSession());
+  const sessionResult = await client.auth.getSession();
   if (!recovering) {
-    if (session.session) await load();
+    if (sessionResult.data?.session && !sessionResult.error) await load();
     else authScreen();
+    if (callbackError || sessionResult.error) {
+      message(
+        callbackError === "access_denied"
+          ? "Sign-in was not completed. Please try again and allow access to your Google account's basic profile."
+          : "We couldn't complete sign-in. Please try again.",
+      );
+      if (callbackError) history.replaceState(null, "", location.pathname);
+    }
   }
 }

@@ -10,7 +10,7 @@ This program is structured to transition you from an academic graduate into a co
 
 ## My workspace
 
-Open [My workspace](https://sn8c29kyhh-star.github.io/seeker/workspace.html), create and confirm your account, and wait for mentor enrollment. Use it for check-in, standup, timesheets, check-out, lesson submissions, and feedback. Mentor approval unlocks the next assignment. The GitHub issue routine below is an alternative only when your mentor explicitly assigns a private issue-based workflow.
+Open [My workspace](https://sn8c29kyhh-star.github.io/seeker/workspace.html), choose **Continue with Google**, and wait for mentor enrollment. Use the same Google account every day and give your mentor its email address. Google sign-in needs no Seeker password or confirmation email. Use it for check-in, standup, timesheets, check-out, lesson submissions, and feedback. Mentor approval unlocks the next assignment. The GitHub issue routine below is an alternative only when your mentor explicitly assigns a private issue-based workflow.
 
 ## 🔗 Key Links to Bookmark
 

@@ -24,7 +24,7 @@ Candidates can check in/out, record a standup, optionally enter bedtime/wake-up 
 
 Students see their own private records. Mentors see only assigned candidates. Corrections retain before/after history, and submission retries retain earlier feedback. Lesson content stays public as reference material. The curriculum's browser-saved reading reminders remain separate from approved assignment progress.
 
-**Before inviting candidates:** configure a production email sender in Supabase, authorize and verify the mentor account, then enroll confirmed student accounts. Supabase's default email sender is limited to project-team addresses. The project administrator must not disable confirmation or invite candidates into the Supabase organization as a workaround.
+**Before inviting candidates:** authorize the mentor's Google email, sign in with **Continue with Google**, then enroll students after their first Google sign-in. Google handles verification without Seeker confirmation emails or passwords. Email/password remains available, but candidate confirmation and reset emails need a configured SMTP sender.
 
 See the [workspace setup and operations guide](guides/workspace-operations.md) for onboarding, data/access rules, correction behavior, local tests, deployment, and limitations. The first version accepts private evidence links; automatic quizzes, weekly examinations, file uploads, leave management, and configurable pass thresholds are later extensions.
 

@@ -4,13 +4,30 @@ The curriculum stays on GitHub Pages. `workspace.html` is the private student/me
 
 ## First mentor and candidate accounts
 
-1. Configure authentication email delivery in Supabase **Authentication → Email → SMTP settings**. The default sender only sends to project-team addresses and is unsuitable for general candidate signup. Keep email confirmation enabled. See [Supabase SMTP guidance](https://supabase.com/docs/guides/auth/auth-smtp).
-2. The project administrator authorizes a mentor email with `python3 scripts/authorize-mentor.py mentor@example.com`. This uses the already authenticated Supabase CLI and writes to a private allowlist, not the public site.
-3. The mentor opens `workspace.html`, creates an account using that email, and follows the confirmation link. The database grants the mentor role only after that email is verified. Existing verified accounts are promoted by the authorization script. Supabase dashboard/CLI accounts and Seeker accounts are separate.
-4. Each candidate creates and confirms their own account. The mentor opens **Enroll a candidate**, enters that confirmed email, and sets a timezone and daytime schedule. Enrollment starts at Day 1. An existing enrollment cannot be silently reassigned to another mentor.
-5. The candidate signs in or presses **Check enrollment**. They can then check in, record work, and submit their first assignment.
+1. Open `workspace.html` and choose **Continue with Google**. Google handles account verification, so this path needs no Supabase confirmation email or Seeker password. The same button creates a first-time account and signs in returning users.
+2. The project administrator authorizes the mentor's exact Google email with `python3 scripts/authorize-mentor.py mentor@example.com`. This uses the authenticated Supabase CLI and writes to a private allowlist. The verified account receives mentor access; a different email is a different identity and must be explicitly authorized. Supabase dashboard/CLI accounts and Seeker accounts are separate.
+3. Each candidate signs in with Google. The mentor opens **Enroll a candidate**, enters that Google email, and sets a timezone and daytime schedule. Enrollment starts at Day 1. An existing enrollment cannot be silently reassigned to another mentor.
+4. The candidate signs in or presses **Check enrollment**. They can then check in, record work, and submit their first assignment.
+
+Email/password remains available. For that path, configure Supabase **Authentication → Email → SMTP settings** before inviting candidates; its default sender is limited to project-team addresses. Keep email confirmations enabled. Google sign-in avoids this email delivery requirement; password resets and email signups still need a sender. See [Supabase SMTP guidance](https://supabase.com/docs/guides/auth/auth-smtp).
 
 New signups have no enrollment or access to other students. Candidates must not be invited as members of the Supabase project team merely to work around email delivery restrictions.
+
+## Google provider configuration
+
+Google is configured on the hosted Supabase project. The browser calls `signInWithOAuth` with provider `google`, requests account selection, and returns to the same workspace URL. Supabase processes the Google callback and the browser Auth client restores the session. Only basic profile/email access is used; no Google Drive or Gmail access is requested.
+
+To recreate the setup, follow [Supabase's Google sign-in guide](https://supabase.com/docs/guides/auth/social-login/auth-google):
+
+- Google Auth Platform: create a **Web application** OAuth client, configure the audience for your candidates, and use only the basic profile, email, and OpenID scopes. If the consent app is in Testing, check its test-user restrictions before inviting candidates.
+- Authorized JavaScript origin: `https://sn8c29kyhh-star.github.io`.
+- Google authorized redirect URI: `https://pljlrpxcerlvrqlnyisw.supabase.co/auth/v1/callback`.
+- Supabase **Authentication → Sign In / Providers → Google**: enable the provider and save the Google client ID and secret there. Keep the nonce check enabled and require an email address.
+- Supabase **URL Configuration**: use `https://sn8c29kyhh-star.github.io/seeker/workspace.html` for the site URL and allowed return URL.
+
+OAuth secrets belong in hosted provider settings, never in browser files or Git. The checked-in config is for local tests and does not recreate the hosted Google credentials. Do not run a broad `supabase config push` to change Google: it may overwrite dashboard-managed settings. Configure the provider in the dashboard or use a narrowly scoped Auth Management API update.
+
+An Apple private-relay address and a Gmail address are different emails; authorizing one does not authorize the other. Existing student records under another email are not transferred by Google sign-in. Google names are copied into new profiles for presentation; metadata cannot grant mentor access.
 
 ## Daily operation
 
@@ -51,7 +68,7 @@ Requirements: Supabase CLI 2.116.0, Docker, Node.js 20+, and `psql` on PATH. The
 ```bash
 supabase start -x realtime,storage-api,imgproxy,studio,edge-runtime,logflare,vector,supavisor,postgres-meta
 supabase db lint --local --level error
-node --test tests/progress-store.test.cjs tests/workspace.integration.test.mjs
+node --test tests/progress-store.test.cjs tests/workspace-auth.test.cjs tests/workspace.integration.test.mjs
 python3 scripts/check-site.py
 node --check docs/workspace.js
 ```
@@ -60,7 +77,7 @@ The integration suite refuses hosted URLs. It creates isolated local users and e
 
 Use `supabase status -o json` to obtain local public settings for an uncommitted local preview of `docs/supabase-config.js`. Never copy the secret/service-role key. Restore the hosted public settings before publication. Start `python3 -m http.server 4317 --bind 127.0.0.1 --directory docs`, then open `/workspace.html`. Local Supabase emails go to Mailpit on port 54324. Stop only this project's stack with `supabase stop` when finished; do not reset hosted data.
 
-The local integration tests prove backend behavior, not visual browser behavior. Browser QA should cover email confirmation/recovery redirects, sign-in/out across tabs, phone layout, form errors, timezones, and student-to-mentor review interaction before enrolling a cohort.
+The local integration tests prove backend behavior, not visual browser behavior. The auth UI contract tests use an isolated JavaScript harness, not a real Google account. Browser QA should cover successful and cancelled Google sign-in, returning to the workspace, email confirmation/recovery redirects, sign-in/out across tabs, phone layout, form errors, timezones, and student-to-mentor review interaction before enrolling a cohort.
 
 ## Deployment and maintenance
 

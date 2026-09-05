@@ -40,7 +40,7 @@ jobs:
           node --check docs/portal.js
           node --check docs/progress-store.js
           node --check docs/workspace.js
-          node --test tests/progress-store.test.cjs
+          node --test tests/progress-store.test.cjs tests/workspace-auth.test.cjs
           python3 scripts/check-site.py
 
       - name: Setup Pages
