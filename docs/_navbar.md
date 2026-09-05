@@ -1,0 +1,6 @@
+- [🏠 Home](README.md)
+- [🗺️ Curriculum](curriculum/overview.md)
+- [🛠️ Setup](curriculum/setup/README.md)
+- [📅 Day 1](curriculum/days/day-01/README.md)
+- [📊 Kanban Guide](guides/github-kanban-guide.md)
+- [🌐 Pages Setup](guides/github-pages-guide.md)

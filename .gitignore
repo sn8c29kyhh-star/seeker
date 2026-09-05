@@ -1,0 +1,25 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Node / Build artifacts (if any tools are added later)
+node_modules/
+dist/
+build/
+.cache/
+
+# Local environment
+.env
+.env.local
+*.log
