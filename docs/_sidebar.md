@@ -61,3 +61,6 @@
   - [Student Welcome Email Template](/instructor/templates/student-welcome-message.md)
   - [Weekly Evaluation Rubric](/instructor/templates/weekly-evaluation-rubric.md)
   - [Mock Interview Scoring Sheet](/instructor/templates/mock-interview-scoring-sheet.md)
+
+- **Workspace operations**
+  - [Mentor setup & operating guide](/guides/workspace-operations.md)

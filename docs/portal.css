@@ -135,3 +135,6 @@ progress::-moz-progress-bar { background: var(--accent); }
 
 .markdown-section [id] { scroll-margin-top: calc(var(--header-height) + 24px); }
 .markdown-section .docsify-copy-code-button { font-size: .875rem; min-height: 36px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); }
+
+.workspace-nav-link { font-size:.875rem; font-weight:600; text-decoration:none; padding:10px 12px; border-radius:8px; background:var(--soft); }
+@media(max-width:480px) { .site-header { gap:8px; padding:0 10px; } .brand-group { gap:6px; } .brand-mark { display:none; } .reading-controls { gap:4px; } .reading-controls button { padding:8px; } .workspace-nav-link { padding:10px 6px; font-size:.8rem; } }

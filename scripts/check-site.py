@@ -16,7 +16,7 @@ for day in range(1, 31):
     path = f'/curriculum/days/phase-{phase}/day-{day:02}' + ('/README.md' if day == 1 else '.md')
     if path not in links:
         errors.append(f'Day {day} absent from sidebar')
-for asset in re.findall(r'(?:src|href)="([^"#]+)"', (root / 'docs/index.html').read_text()):
+for asset in re.findall(r'(?:src|href)="([^"#]+)"', (root / 'docs/index.html').read_text() + (root / 'docs/workspace.html').read_text()):
     if not asset.startswith(('https://', 'http://')) and not (root / 'docs' / asset).exists():
         errors.append(f'Missing local asset: {asset}')
 for route in re.findall(r'href="#/([^"?]+)"', (root / 'docs/README.md').read_text()):

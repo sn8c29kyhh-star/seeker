@@ -1,6 +1,6 @@
 # Publishing and maintaining the Seeker portal
 
-The portal uses Docsify to read the Markdown curriculum. GitHub Pages serves the public course; it does not store student accounts or assessment results.
+The portal uses Docsify to read the Markdown curriculum. GitHub Pages serves the public course and `workspace.html`; Supabase stores private workspace accounts and results. See [workspace operations](workspace-operations.md).
 
 ## Production deployment
 
@@ -43,7 +43,7 @@ Keep lesson content in `curriculum/`; do not edit generated copies in the deploy
 
 Students can mark each main day lesson studied and undo the mark. The home page resumes the first unmarked day. The total starts at zero and measures self-reported study, not assessed mastery. Exercises and resource pages do not independently complete a day.
 
-Progress is stored under `seeker-study-v1` in localStorage. It belongs to this site’s origin and this browser profile, is shared by anyone using that profile, and can disappear when browser data is cleared. There is no login, device sync, submission upload, quiz engine, or mentor grade book. Storage failures are shown to the student; in that case changes last for the current page session only. Other tabs receive saved progress changes.
+Progress is stored under `seeker-study-v1` in localStorage. It belongs to this site’s origin and this browser profile, is shared by anyone using that profile, and can disappear when browser data is cleared. These reading reminders have no login or sync. The separate My workspace interface provides authenticated attendance, submissions, reviews, and progression through Supabase; automatic quizzes and file uploads are not implemented. Storage failures are shown to the student; in that case changes last for the current page session only. Other tabs receive saved progress changes.
 
 The old phase selection is deliberately not converted into completed days: opening a phase did not prove that any lesson was studied. All lessons remain readable. No public JavaScript or localStorage value should be trusted to award a grade or enforce assessment prerequisites.
 

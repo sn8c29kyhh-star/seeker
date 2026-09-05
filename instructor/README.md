@@ -4,6 +4,10 @@ This directory contains the **Standard Operating Procedures (SOP)**, operational
 
 ---
 
+## Integrated workspace
+
+Use [My workspace](https://sn8c29kyhh-star.github.io/seeker/workspace.html) for enrollment, attendance, private submissions, feedback, and mentor-controlled progression. Follow the [workspace setup guide](../guides/workspace-operations.md) first. The GitHub issue/board workflow below remains an optional alternative for a manual pilot.
+
 ## 🗂️ Instructor Toolkit Contents
 
 | Resource | Purpose | Link |

@@ -64,7 +64,7 @@
     const next = progress.nextDay(state);
     if ($('#study-count')) $('#study-count').textContent = `${count} / 30`;
     if ($('#study-progress')) $('#study-progress').value = count;
-    if ($('#storage-note')) $('#storage-note').textContent = storageFailed ? 'Saving is unavailable. Changes last only for this visit.' : 'Saved in this browser. No account sync or mentor grading.';
+    if ($('#storage-note')) $('#storage-note').textContent = storageFailed ? 'Saving is unavailable. Changes last only for this visit.' : 'Personal browser marks. Approved progress is in My workspace.';
     document.querySelectorAll('.sidebar-nav a').forEach(link => {
       const day = progress.dayFromPath(link.hash);
       link.dataset.completed = String(day !== null && state.completed.includes(day));
@@ -91,7 +91,7 @@
     if (!$('#study-widget')) {
       const panel = document.createElement('section');
       panel.id = 'study-widget'; panel.className = 'progress-widget'; panel.setAttribute('aria-label', 'Your study progress');
-      panel.innerHTML = '<div class="progress-title"><span>My study progress</span><span id="study-count">0 / 30</span></div><progress id="study-progress" max="30" value="0" aria-label="Days marked studied"></progress><p id="storage-note"></p>';
+      panel.innerHTML = '<div class="progress-title"><span>Reading reminders</span><span id="study-count">0 / 30</span></div><progress id="study-progress" max="30" value="0" aria-label="Days marked studied"></progress><p id="storage-note"></p>';
       const nav = sidebar.querySelector('.sidebar-nav');
       sidebar.insertBefore(panel, nav);
       sidebar.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
@@ -138,7 +138,7 @@
       content.querySelector('h1')?.insertAdjacentElement('afterend', toc);
     }
     const completion = document.createElement('section'); completion.className = 'lesson-completion';
-    completion.innerHTML = '<h2>Finished studying for today?</h2><p>Complete the exercise and explain the key ideas in your own words. Share your work with your mentor before moving on.</p><button class="button" id="complete-day" type="button" aria-pressed="false">Mark my study complete</button><p id="completion-note"></p>';
+    completion.innerHTML = '<h2>Finished studying for today?</h2><p>Complete the exercise and explain the key ideas in your own words. Share your work with your mentor before moving on.</p><p><a class="button secondary" href="workspace.html" target="_self">Submit work in my workspace →</a></p><button class="button" id="complete-day" type="button" aria-pressed="false">Mark my study complete</button><p id="completion-note"></p>';
     content.append(completion);
     const button = $('#complete-day'); button.dataset.day = day;
     button.addEventListener('click', () => {

@@ -5,6 +5,8 @@
 <p>No application programming required. Basic SQL and API testing are included.</p>
 </div>
 
+<p><a class="button" href="workspace.html" target="_self">Open my workspace →</a> <span class="muted">Check in, log work, and see mentor feedback.</span></p>
+
 <section class="resume-panel" aria-label="Continue learning">
 <div><span class="eyebrow">YOUR LEARNING PATH</span><h2 id="resume-title">Start with the fundamentals</h2><p id="resume-description">30 days of concepts, practice, and interview preparation.</p></div>
 <a class="button" id="resume-link" href="#/curriculum/days/phase-1/day-01/README">Start Day 1 →</a>

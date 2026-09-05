@@ -1,0 +1,27 @@
+name: Workspace database tests
+on:
+  push:
+    branches: [main]
+    paths: ['supabase/**', 'tests/workspace.integration.test.mjs', 'docs/workspace.js', '.github/workflows/workspace-tests.yml']
+  pull_request:
+    paths: ['supabase/**', 'tests/workspace.integration.test.mjs', 'docs/workspace.js', '.github/workflows/workspace-tests.yml']
+permissions:
+  contents: read
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.116.0
+      - name: Start isolated local backend
+        run: supabase start -x realtime,storage-api,imgproxy,studio,edge-runtime,logflare,vector,supavisor,postgres-meta > /tmp/seeker-local-start.log 2>&1
+      - name: Validate database functions
+        run: supabase db lint --local --level error
+      - name: Verify Auth, data isolation, attendance and progression
+        run: node --test tests/workspace.integration.test.mjs
+      - name: Stop local backend
+        if: always()
+        run: supabase stop

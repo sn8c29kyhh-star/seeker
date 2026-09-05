@@ -12,6 +12,7 @@ on:
       - "instructor/**"
       - "scripts/**"
       - "tests/**"
+      - "supabase/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -38,6 +39,7 @@ jobs:
         run: |
           node --check docs/portal.js
           node --check docs/progress-store.js
+          node --check docs/workspace.js
           node --test tests/progress-store.test.cjs
           python3 scripts/check-site.py
 

@@ -8,6 +8,10 @@ This program is structured to transition you from an academic graduate into a co
 
 > **Submission privacy:** This curriculum repository is public. Use the private submission location your mentor provides for daily work, scores, and personal information. Public issues are for non-personal course questions only.
 
+## My workspace
+
+Open [My workspace](https://sn8c29kyhh-star.github.io/seeker/workspace.html), create and confirm your account, and wait for mentor enrollment. Use it for check-in, standup, timesheets, check-out, lesson submissions, and feedback. Mentor approval unlocks the next assignment. The GitHub issue routine below is an alternative only when your mentor explicitly assigns a private issue-based workflow.
+
 ## 🔗 Key Links to Bookmark
 
 - 🌐 **Live Curriculum Portal**: [https://sn8c29kyhh-star.github.io/seeker/](https://sn8c29kyhh-star.github.io/seeker/)
