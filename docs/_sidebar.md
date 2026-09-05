@@ -1,5 +1,6 @@
 - **Getting Started**
   - [🎯 Program Introduction](README.md)
+  - [📢 Candidate Onboarding Guide](guides/candidate-onboarding-instructions.md)
   - [🗺️ 30-Day Master Roadmap](curriculum/overview.md)
   - [💻 Day 0: Laptop & AI Setup](curriculum/setup/README.md)
 
