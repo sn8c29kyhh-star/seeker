@@ -11,7 +11,7 @@ Tracking daily progress using a **Kanban Board** gives both the learner and ment
 2. Click the green **New Project** button.
 3. Choose the **Board** template (cards organized in columns) and click **Create**.
 4. Name your project:
-   - Example: `🎓 SWE Jumpstart: [Graduate Name] Progress Board`
+   - Example: `🎓 Manual QA Jumpstart: [Graduate Name] Progress Board`
 
 ---
 
@@ -21,10 +21,10 @@ Customize the columns to represent your daily workflow stages:
 
 | Column Name | Purpose |
 | :--- | :--- |
-| **📥 Backlog** | Future curriculum days (Day 02, Day 03, Capstone ideas). |
+| **📥 Backlog** | Future curriculum days (Phase 2, Phase 3, Capstone). |
 | **🎯 Ready / Today** | The specific day's issue scheduled for today. |
-| **⏳ In Progress** | The learner is currently reading, coding, or testing. |
-| **👀 In Review** | Code is committed, PR is open, or waiting for mentor review. |
+| **⏳ In Progress** | The learner is currently studying, designing test cases, or testing. |
+| **👀 In Review** | Test sheets / bug tickets submitted for mentor review. |
 | **✅ Done** | Day's deliverables verified, self-assessment answered, issue closed. |
 
 > **Pro Tip**: To add or edit columns in GitHub Projects:

@@ -1,6 +1,6 @@
 ---
-name: "📅 Daily Progress Log"
-about: "Track and log daily curriculum completion, exercises, and learnings."
+name: "📅 Daily QA Progress Log"
+about: "Track and log daily Manual QA curriculum completion, exercises, and learnings."
 title: "Day [XX]: [Module Name]"
 labels: ["daily-log", "in-progress"]
 assignees: ""
@@ -8,42 +8,36 @@ assignees: ""
 
 ## 🎯 Daily Goal & Module
 - **Curriculum Day**: Day `[XX]`
-- **Topic**: `[Topic Name]`
-- **Estimated Completion Time**: `[e.g. 7 hours]`
+- **Phase**: `[Phase 1 / 2 / 3 / 4 / 5]`
+- **Topic**: `[e.g., Black-Box Test Design: ECP & BVA]`
 
 ---
 
 ## 📋 Task Checklist
 
-- [ ] Completed environment check / daily standup.
-- [ ] Read all assigned concepts and documentation.
-- [ ] Completed hands-on exercise in `curriculum/days/day-XX/exercises/`.
-- [ ] Pushed code commits to branch.
-- [ ] Answered self-assessment questions.
-- [ ] Reviewed code with peer / mentor (if required).
+- [ ] Read through core concepts, diagrams, and cheatsheets.
+- [ ] Practiced hands-on exercise (Google Sheets / Jira / SQL / Postman).
+- [ ] Exported and saved deliverables in `C:\QA_Training\` folder.
+- [ ] Answered self-assessment interview questions.
+- [ ] Reviewed any doubts with mentor / logged blocker ticket.
+
+---
+
+## 📊 Daily Deliverables Summary
+- **Test Cases Written (Count)**: `[e.g., 12 test cases]`
+- **Bugs / Defects Logged (Count & Links)**: `[e.g., 2 Jira bugs logged]`
+- **Deliverable File Path / Link**: `[e.g., C:\QA_Training\02_Test_Cases\... or Google Drive link]`
 
 ---
 
 ## 💡 Key Learnings & Takeaways
-*Summarize 2-4 key takeaways or insights from today's work:*
 1. 
 2. 
 3. 
 
 ---
 
-## 🔗 Commits / Pull Requests
-- PR Link: 
-- Commit Hash: 
-
----
-
-## 🚧 Challenges Faced & How They Were Solved
-*Describe any blocker, bug, or confusion encountered and how you resolved it:*
-- 
-
----
-
 ## 🙋 Status
+- [ ] In Progress
 - [ ] Ready for Mentor Review
 - [ ] Completed & Self-Verified
