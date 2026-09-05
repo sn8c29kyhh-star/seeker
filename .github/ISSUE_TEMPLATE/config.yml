@@ -1,8 +1,8 @@
 blank_issues_enabled: true
 contact_links:
   - name: "📖 Jumpstart Curriculum Documentation"
-    url: "https://your-org.github.io/seeker"
+    url: "https://sn8c29kyhh-star.github.io/seeker"
     about: "Browse the live day-by-day learning plan and setup guides."
   - name: "💬 Engineering Discussion Forum"
-    url: "https://github.com/your-org/seeker/discussions"
+    url: "https://github.com/sn8c29kyhh-star/seeker/discussions"
     about: "Ask general questions and discuss with peers."
