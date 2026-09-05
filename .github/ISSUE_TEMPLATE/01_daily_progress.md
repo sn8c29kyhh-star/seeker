@@ -6,10 +6,13 @@ labels: ["daily-log", "in-progress"]
 assignees: ""
 ---
 
+> 💡 **Focus Rule**: You only need to focus on today's tasks. Do not worry about future days until you reach them!
+
 ## 🎯 Daily Goal & Module
 - **Curriculum Day**: Day `[XX]`
 - **Phase**: `[Phase 1 / 2 / 3 / 4 / 5]`
 - **Topic**: `[e.g., Black-Box Test Design: ECP & BVA]`
+- **Direct Lesson Link**: `https://sn8c29kyhh-star.github.io/seeker/#/curriculum/days/phase-X/day-XX`
 
 ---
 
