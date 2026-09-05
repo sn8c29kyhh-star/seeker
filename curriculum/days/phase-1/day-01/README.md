@@ -25,7 +25,7 @@ By the end of today, you will:
 | **12:30 - 13:30** | *Lunch Break* | — |
 | **13:30 - 15:00** | Software Models: Waterfall vs Agile | Sprints, user stories, standups, why Agile is dominant in modern IT companies. |
 | **15:00 - 16:30** | Hands-On Exercise | Complete [Day 1 Exercise: Verification vs Validation Matrix](exercises/README.md). |
-| **16:30 - 17:30** | Review & Interview Prep | Answer the 4 interview questions, commit exercise notes, close GitHub Issue. |
+| **16:30 - 17:30** | Review & Interview Prep | Answer the 4 interview questions, submit exercise notes for mentor review. |
 
 ---
 
@@ -107,4 +107,4 @@ Be ready to answer these confidently without reading notes:
 - [ ] Read through all core concept notes and tables.
 - [ ] Completed the [Day 1 Exercise](exercises/README.md) and saved in `C:\QA_Training\01_Requirements\`.
 - [ ] Added answers to the 4 self-assessment questions in your GitHub Issue comments.
-- [ ] Moved card to `Done` on your Kanban board and closed the issue.
+- [ ] Submitted work for mentor review. Move to `Done` after mentor approval.

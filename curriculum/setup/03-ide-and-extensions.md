@@ -1,4 +1,6 @@
-# 💻 Setup Step 3: IDE & Developer Extensions
+# 💻 Optional: IDE & Developer Extensions
+
+> These developer tools are optional. The Manual QA course can be followed using a browser, Sheets, Jira, and Postman; you do not need an IDE or code extensions.
 
 A well-configured Integrated Development Environment (IDE) enhances productivity, enforces code formatting, and catches bugs before they reach code review.
 
@@ -67,4 +69,4 @@ Add the following to your VS Code `settings.json` (`Cmd+,` -> click top-right "O
 ## ✅ You're Ready!
 
 Your workstation is now configured for software development.
-Proceed to **[Day 1: Curriculum & Exercises](../days/day-01/README.md)**.
+Proceed to **[Day 1: Curriculum & Exercises](../days/phase-1/day-01/README.md)**.

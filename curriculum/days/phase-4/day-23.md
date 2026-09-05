@@ -27,13 +27,15 @@ By the end of today, you will:
 
 ## 🛠️ Hands-On Task for Today
 
+Before sending requests, create your own ReqRes API key using the [ReqRes setup guide](https://reqres.in/docs). In Postman, add a header named `x-api-key` with your key as its value to **every** request below. Do not include the key in screenshots, public issues, or exported portfolio files. If you receive 401 or 403, check your key and the current service instructions before reporting a bug.
+
 Open Postman and execute these 4 requests:
 
 ### Request 1: Get User List (GET)
 - Method: `GET`
 - URL: `https://reqres.in/api/users?page=2`
 - Click **Send**.
-- Check: Status code (`200 OK`), Response Time (< 500ms), and inspect the list of user objects.
+- Check: Status code (`200 OK`), Response Time (record the observed value; your network affects it), and inspect the list of user objects.
 
 ### Request 2: Get Single User Not Found (GET - Negative)
 - Method: `GET`

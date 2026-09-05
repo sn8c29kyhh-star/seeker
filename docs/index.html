@@ -2,136 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Manual QA Jumpstart - 30-Day Training Plan & Tracker</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="30-Day Day-by-Day Manual QA Training Plan for Fresh Graduates.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Docsify Theme -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css">
-  <link rel="stylesheet" href="progressive-unlock.css">
-  
-  <style>
-    :root {
-      --docsify-font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --code-font-family: 'JetBrains Mono', monospace;
-      --theme-color: #2563eb;
-    }
-    body {
-      font-family: var(--docsify-font-family);
-    }
-    code, pre {
-      font-family: var(--code-font-family) !important;
-    }
-    .sidebar {
-      font-size: 15px;
-    }
-    .markdown-section h1 {
-      font-weight: 700;
-      color: #1e293b;
-    }
-    .markdown-section h2 {
-      font-weight: 600;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 0.3em;
-    }
-    .markdown-section table {
-      display: table;
-      width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .markdown-section blockquote {
-      border-left: 4px solid var(--theme-color);
-      background: rgba(37, 99, 235, 0.05);
-      border-radius: 0 6px 6px 0;
-      padding: 12px 16px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Seeker: a 30-day Manual QA learning path. Learn testing, practise with real tools, and build your portfolio, one day at a time.">
+  <meta name="theme-color" content="#153dce">
+  <title>Seeker · Manual QA learning path</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css">
+  <link rel="stylesheet" href="portal.css">
+  <script>
+    try {
+      const theme = localStorage.getItem('seeker-theme');
+      document.documentElement.dataset.theme = theme === 'dark' || theme === 'light' ? theme : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (localStorage.getItem('seeker-large-text') === 'true') document.documentElement.dataset.largeText = 'true';
+    } catch (_) {}
+  </script>
 </head>
 <body>
-  <div id="app">Loading 30-Day Manual QA Portal...</div>
+  <a class="skip-link" href="#main" id="skip-link">Skip to lesson</a>
+  <header class="site-header">
+    <div class="brand-group">
+      <button class="menu-button" id="menu-button" type="button" aria-label="Open course navigation" aria-controls="course-sidebar" aria-expanded="false">☰</button>
+      <a class="brand" href="#/" aria-label="Seeker home"><span class="brand-mark" aria-hidden="true">s.</span>seeker<span class="brand-dot">/</span></a>
+      <span class="header-course">Manual QA learning path</span>
+    </div>
+    <div class="reading-controls" aria-label="Reading preferences">
+      <button type="button" id="text-size" aria-pressed="false" aria-label="Use larger lesson text">Aa<span class="control-label"> Text size</span></button>
+      <button type="button" id="theme-toggle" aria-pressed="false" aria-label="Use dark appearance">◐<span class="control-label"> Theme</span></button>
+    </div>
+  </header>
+  <button class="nav-backdrop" id="nav-backdrop" aria-label="Close course navigation" tabindex="-1"></button>
+  <div id="app">Loading your learning path…</div>
+  <noscript><p class="noscript">Enable JavaScript to read the portal, or <a href="https://github.com/sn8c29kyhh-star/seeker/blob/main/curriculum/overview.md">read the curriculum on GitHub</a>.</p></noscript>
+  <div id="save-status" class="sr-only" role="status" aria-live="polite"></div>
   <script>
     window.$docsify = {
-      name: '🎯 Manual QA 30-Day',
-      repo: 'https://github.com/sn8c29kyhh-star/seeker',
+      name: 'Your learning path',
       loadSidebar: true,
-      loadNavbar: true,
-      coverpage: false,
-      subMaxLevel: 3,
+      alias: { '/.*/_sidebar.md': '/_sidebar.md' },
+      subMaxLevel: 0,
       auto2top: true,
-      search: {
-        maxAge: 86400000,
-        paths: 'auto',
-        placeholder: 'Search curriculum & guides...',
-        noData: 'No results found',
-        depth: 3
-      },
-      copyCode: {
-        buttonText: 'Copy',
-        errorText: 'Error',
-        successText: 'Copied!'
-      },
-      pagination: {
-        previousText: 'Previous Day',
-        nextText: 'Next Day',
-        crossChapter: true
-      },
-      darklightTheme: {
-        siteFont: 'Inter',
-        defaultTheme: 'light',
-        codeFontFamily: 'JetBrains Mono, monospace',
-        bodyFontSize: '16px',
-        dark: {
-          accent: '#60a5fa',
-          toogleBackground: '#ffffff',
-          background: '#0f172a',
-          textColor: '#f8fafc',
-          codeTextColor: '#e2e8f0',
-          codeBackgroundColor: '#1e293b',
-          borderColor: '#334155',
-          blockQuoteColour: '#60a5fa',
-          sidebarSubView: '#1e293b'
-        },
-        light: {
-          accent: '#2563eb',
-          toogleBackground: '#0f172a',
-          background: '#ffffff',
-          textColor: '#1e293b',
-          codeTextColor: '#0f172a',
-          codeBackgroundColor: '#f1f5f9',
-          borderColor: '#e2e8f0',
-          blockQuoteColour: '#2563eb',
-          sidebarSubView: '#f8fafc'
-        }
-      }
+      relativePath: true,
+      search: { paths: 'auto', placeholder: 'Search lessons…', noData: 'No lessons found. Try another topic.', depth: 3 },
+      copyCode: { buttonText: 'Copy', successText: 'Copied', errorText: 'Select and copy the text' },
+      notFoundPage: true
     };
   </script>
-  <!-- Docsify Core -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <!-- Search Plugin -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!-- Copy Code Plugin -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <!-- Dark/Light Mode Switcher -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
-  <!-- Zoom Image Plugin -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <!-- Pagination -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <!-- Prism Syntax Highlighting -->
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
-
-  <!-- Progressive Learning Unlocker Plugin -->
-  <script src="progressive-unlock.js"></script>
+  <script src="progress-store.js"></script>
+  <script src="portal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2.1.1/dist/docsify-copy-code.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-sql.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-json.min.js"></script>
 </body>
 </html>

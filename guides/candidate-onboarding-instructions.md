@@ -6,6 +6,8 @@ This program is structured to transition you from an academic graduate into a co
 
 ---
 
+> **Submission privacy:** This curriculum repository is public. Use the private submission location your mentor provides for daily work, scores, and personal information. Public issues are for non-personal course questions only.
+
 ## 🔗 Key Links to Bookmark
 
 - 🌐 **Live Curriculum Portal**: [https://sn8c29kyhh-star.github.io/seeker/](https://sn8c29kyhh-star.github.io/seeker/)
@@ -51,11 +53,11 @@ Every day from 9:00 AM to 6:00 PM, follow this agile workflow:
 flowchart LR
     A["1. Morning (09:00 AM)<br>Create Daily Issue"] --> B["2. Day Time<br>Study & Practice"]
     B --> C["3. Stuck >30m?<br>Raise Blocker Issue"]
-    B --> D["4. Evening (05:30 PM)<br>Attach Work & Close Issue"]
+    B --> D["4. Evening (05:30 PM)<br>Submit Work for Review"]
 ```
 
 ### 1. Morning Standup (9:00 AM)
-- Go to **[GitHub Issues -> New Issue](https://github.com/sn8c29kyhh-star/seeker/issues/new/choose)**.
+- Go to **Issues → New issue** in the private submission repository your mentor provides.
 - Select **Daily QA Progress Log**.
 - Title it: `Day [XX]: [Module Title]`.
 - Assign yourself, select your Kanban Board, and drag your card to **`In Progress`**.
@@ -69,14 +71,14 @@ flowchart LR
 ### 3. If You Get Stuck (The 30-Minute Rule)
 - If you encounter a bug, confusion, or tool failure and cannot solve it within **30 minutes**:
   1. Ask Gemini Desktop for clarification first.
-  2. If still blocked, go to **[New Issue -> Blocker or Technical Doubt](https://github.com/sn8c29kyhh-star/seeker/issues/new/choose)**.
+  2. If still blocked, open **New Issue → Blocker or Technical Doubt** in your private submission repository.
   3. Fill out what you tried, paste screenshots/error messages, and tag your mentor.
 
 ### 4. End of Day Review (5:30 PM)
 - Open your morning GitHub Issue.
 - Check off all completed checklist items.
 - In the issue comments, paste your shareable Google Drive link / file path and fill out your 3 Key Learnings.
-- Move your card to **`In Review`** (or close it to auto-move to **`Done`**).
+- Move your card to **`In Review`**. Only mark the assessed work `Done` after your mentor approves it. The portal’s study-complete button is a personal reminder, not a pass.
 
 ---
 

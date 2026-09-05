@@ -40,7 +40,14 @@ assignees: ""
 
 ---
 
+## Mentor Assessment
+- **Reviewer**:
+- **Score / maximum**:
+- **Required pass score**:
+- **Decision**: Pending / Revise / Approved
+- **Feedback and retry work**:
+
 ## 🙋 Status
 - [ ] In Progress
 - [ ] Ready for Mentor Review
-- [ ] Completed & Self-Verified
+- [ ] Mentor Approved

@@ -4,6 +4,8 @@ Tracking daily progress using a **Kanban Board** gives both the learner and ment
 
 ---
 
+> Use a private submission repository for student work and scores. A filtered view on a shared board does not make its issues private. Keep the public curriculum repository for course content.
+
 ## 🏗️ Step 1: Create a New GitHub Project Board
 
 1. In your GitHub repository, click on the **Projects** tab (located next to Issues and Pull Requests).
@@ -63,12 +65,12 @@ sequenceDiagram
     Graduate->>Issue: 1. Create Daily Issue from Template
     Issue->>Board: Card added to 'Ready / Today'
     Graduate->>Board: 2. Drag to 'In Progress'
-    Graduate->>Graduate: 3. Study & Write Code
+    Graduate->>Graduate: 3. Study & Practise QA
     alt Blocker Encountered (>30m)
         Graduate->>Issue: Create Blocker Issue (Tag Mentor)
         Mentor-->>Graduate: Provide Guidance & Hints
     end
-    Graduate->>Issue: 4. Check off tasks & paste PR link
+    Graduate->>Issue: 4. Check off tasks & paste submission link
     Graduate->>Board: 5. Move card to 'In Review'
     Mentor->>Issue: 6. Review & Approve
     Graduate->>Issue: 7. Close Issue
@@ -92,6 +94,6 @@ sequenceDiagram
 
 3. **Evening (5:30 PM)**:
    - Update your daily issue: check all completed checkboxes.
-   - Paste your Git branch name or PR link.
+   - Paste your exercise attachment or mentor-accessible submission link.
    - Fill out the 3 quick questions in *Key Learnings & Takeaways*.
-   - Close the issue (or move to `In Review` if waiting on mentor sign-off).
+   - Move the issue to `In Review`. Close it only after your mentor approves the submission.

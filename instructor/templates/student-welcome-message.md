@@ -26,7 +26,8 @@ This is a **zero-coding curriculum**. We focus strictly on:
 
 - 🌐 **Live Curriculum Portal**: [https://sn8c29kyhh-star.github.io/seeker/](https://sn8c29kyhh-star.github.io/seeker/)
 - 🐙 **GitHub Repository**: [https://github.com/sn8c29kyhh-star/seeker](https://github.com/sn8c29kyhh-star/seeker)
-- 📊 **Your Progress Kanban Board**: [https://github.com/sn8c29kyhh-star/seeker/projects](https://github.com/sn8c29kyhh-star/seeker/projects)
+- 📊 **Your Private Progress Board**: [Private student board URL]
+- 📝 **Your Private Submission Repository**: [Private student repository URL]
 
 ---
 
@@ -63,7 +64,7 @@ Before touching testing theory, configure your Windows laptop with the necessary
 
 ### 🔄 3. Your Daily Routine (Days 1 to 30)
 
-- **Morning (09:00 AM)**: Go to **[GitHub Issues -> New Issue](https://github.com/sn8c29kyhh-star/seeker/issues/new/choose)**, create your **Daily QA Progress Log**, and set card to `In Progress`.
+- **Morning (09:00 AM)**: Go to **[Private submission repository issue URL]**, create your **Daily QA Progress Log**, and set card to `In Progress`.
 - **Daytime (10:00 AM – 05:00 PM)**: Follow the daily lesson on the live website, complete hands-on tasks, and save deliverables in `C:\QA_Training\`.
 - **If Blocked (>30 mins)**: Open a **Blocker or Technical Doubt** issue on GitHub and tag me. Never stay stuck for more than 30 minutes!
 - **Evening (05:30 PM)**: Check off tasks in your daily issue, paste links to your deliverables, and move your card to `In Review`.

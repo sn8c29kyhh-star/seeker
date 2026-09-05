@@ -1,81 +1,45 @@
-# 🎯 30-Day Day-by-Day Manual QA Training Plan & Progress Tracker
+# Seeker · Manual QA learning path
 
-> **A zero-coding, high-impact curriculum designed to train fresh graduates in manual test design, Jira defect tracking, no-code API testing via Postman, and backend database validation with SQL.**
+A 30-day course for students preparing for Manual QA, QA Analyst, and Functional Testing roles. No application programming is required; basic SQL and API testing are included. The course builds practical skills and a portfolio, rather than guaranteeing employment after a fixed number of days.
 
----
+[Open the learning portal](https://sn8c29kyhh-star.github.io/seeker/) · [Full curriculum](curriculum/overview.md) · [Student onboarding](guides/candidate-onboarding-instructions.md)
 
-## 🌟 Overview & Core Principles
+## Course structure
 
-This program prepares graduates for immediate employment as **Manual QA Testers / QA Analysts** in software companies (with dedicated preparation for tech hubs like Hyderabad: HITEC City, Madhapur, Gachibowli, and Financial District).
+| Phase | Days | Practice |
+| --- | --- | --- |
+| Testing foundations | 1–7 | Test design, test cases, requirement coverage |
+| Defects and Jira | 8–14 | Bug reports, triage, Agile sprint simulation |
+| SQL data validation | 15–20 | Queries, joins, and checking records |
+| API testing | 21–25 | Postman requests, collections, response checks |
+| Portfolio and job preparation | 26–30 | Testing project, resume, interview practice |
 
-- 🚫 **Zero Coding**: No programming languages required. Focus strictly on test design techniques, real project documentation, hands-on Jira tracking, Postman API testing, and SQL data validation.
-- 🤖 **AI-Supercharged Workstation**: Leverage Google Gemini Desktop and Google Antigravity as on-demand mentors and documentation generators.
-- 📋 **Industry-Standard Documentation**: Build test scenarios, test cases, and Requirement Traceability Matrices (RTM) using Google Sheets and Excel.
-- 📊 **GitHub-Powered Tracking**: Track daily progress using **GitHub Issues**, **Pull Requests/Commits**, and a **Kanban Board**, while publishing the full curriculum as a **GitHub Pages** portal.
+Start with [Day 0 setup](curriculum/setup/README.md), then [Day 1](curriculum/days/phase-1/day-01/README.md). Each day is a learning unit; students can take longer when they need more practice.
 
----
+## Reading and study progress
 
-## 🧭 Curriculum Phases at a Glance
+The GitHub Pages portal includes responsive navigation, light/dark appearance, a larger-text option, lesson contents, rendered diagrams, previous/next lessons, and a personal daily study checklist with undo.
 
-```mermaid
-flowchart TD
-    D0["Day 0: Laptop Setup & AI Workstation"] --> P1["Phase 1: Testing Foundations & Design (Days 1–7)"]
-    P1 --> P2["Phase 2: Defect Management & Jira (Days 8–14)"]
-    P2 --> P3["Phase 3: SQL for Data Validation (Days 15–20)"]
-    P3 --> P4["Phase 4: No-Code API Testing via Postman (Days 21–25)"]
-    P4 --> P5["Phase 5: Live Project & Job Prep (Days 26–30)"]
-```
+**Study marks are saved only in the current browser.** They are not tied to a student account, do not synchronize across devices, and do not count as mentor approval. All lessons remain open for reference. The old phase-unlock selector has been replaced because it did not verify completion.
 
-| Phase | Duration | Focus Topics | Key Deliverables |
-| :--- | :--- | :--- | :--- |
-| **Day 0** | Setup | Windows tools, Gemini Desktop, Antigravity, DevTools, Directory structure | Configured machine & AI dry-run |
-| **Phase 1** | Days 1–7 | QA vs QC, SDLC/STLC, Levels, Functional vs Non-Functional, ECP, BVA, RTM | 50+ Test Cases & RTM in Google Sheets |
-| **Phase 2** | Days 8–14 | Defect Life Cycle, Severity vs Priority, Jira Cloud, Zephyr, Agile Scrum | Sprint Simulation & Jira Bug Tickets |
-| **Phase 3** | Days 15–20 | SQL DB Testing, SELECT, WHERE, Aggregations, JOINs, Mutation checks | SQL Verification Scripts |
-| **Phase 4** | Days 21–25 | HTTP Basics, Status Codes, Postman Requests, Collections, Environments | Postman API Test Collection |
-| **Phase 5** | Days 26–30 | Live Web Testing, Cross-Browser/Mobile, QA Resume, Hyderabad Job Strategy, Mock Interview | Portfolio Drive Links & Interview Readiness |
+## Student submissions and review
 
----
+Keep the curriculum public and each student’s work and scores in a separate private submission repository or private learning system. A filtered GitHub Project view is not an access boundary.
 
-## ⚡ Quick Links & Navigation
+The mentor provides a private submission location and a daily issue template. The student submits evidence and moves the work to `In Review`; the mentor records feedback and approval before it becomes `Done`. Do not use a path on the student’s laptop as the only submission evidence.
 
-| Resource | Description | Direct Link |
-| :--- | :--- | :--- |
-| 🛠️ **System Setup (Day 0)** | AI assistants, productivity tools, DevTools, folder structure | [View Setup Guide](curriculum/setup/README.md) |
-| 🗺️ **Full 30-Day Syllabus** | Complete breakdown of all 5 phases and 30 days | [View Curriculum Roadmap](curriculum/overview.md) |
-| 📅 **Day 1: QA Fundamentals** | Day 1 agenda, schedule, core concepts, exercise | [Go to Day 1](curriculum/days/phase-1/day-01/README.md) |
-| 📝 **QA Templates** | Test Case template, Bug Report template, RTM template | [View Templates](curriculum/templates/test-case-template.md) |
-| 📊 **Kanban Progress Guide** | How to use GitHub Projects to track daily progress | [Read Guide](guides/github-kanban-guide.md) |
-| 🌐 **GitHub Pages Guide** | How to publish this curriculum as a live website | [Read Guide](guides/github-pages-guide.md) |
+See the [instructor guide](instructor/README.md) and [weekly evaluation rubric](instructor/templates/weekly-evaluation-rubric.md). Avoid giving students write access to the public curriculum solely to track their work.
 
----
+## Extending this into assessed learning
 
-## 🔄 Daily Workflow for the Graduate
+Keep the Markdown course content, and add a student application/API when individual accounts and graded progression are introduced. The minimum records are enrollment, lesson version, submission, assessment attempt, score, feedback, and mentor approval. Store them under authenticated student identities and enforce access on the server.
 
-```mermaid
-sequenceDiagram
-    participant Learner as Graduate Learner
-    participant Issue as GitHub Issue
-    participant Board as Kanban Board
-    participant Mentor as Mentor / Lead
+Define the passing rule before implementation: daily quiz threshold, required practical approval, which days have weekly gates, and what happens after a failed attempt. For example, a 70% quiz threshold plus practical approval is a proposal to pilot, not a configured or validated rule. Preserve retry history and offer corrective exercises.
 
-    Learner->>Issue: 1. Open Daily Progress Issue (from template)
-    Issue->>Board: Card placed on 'Ready / Today'
-    Learner->>Board: 2. Drag card to 'In Progress'
-    Learner->>Learner: 3. Study concept & execute hands-on task
-    alt Encountered a Blocker (>30m)
-        Learner->>Issue: Open Blocker Issue & Tag Mentor
-        Mentor-->>Learner: Provide hints / unblock
-    end
-    Learner->>Issue: 4. Check tasks, attach Google Sheets link / screenshots
-    Learner->>Board: 5. Drag card to 'In Review'
-    Mentor->>Issue: 6. Review work & sign off
-    Learner->>Issue: 7. Close Issue (Auto-moves to 'Done')
-```
+Keep grading keys private. A public repository can remain a reading library, but cannot conceal future lesson material. If future lessons themselves must be inaccessible, serve that content through authenticated access as well.
 
----
+Before expanding all 30 days, pilot Days 1–7 with a small group. Use the revised [lesson template](curriculum/days/template/day-template.md) for objectives, key explanations, videos with text alternatives, worked examples, exercises, submissions, and assessment criteria. Later phases still need repeatable practice data and exercises checked against the actual target applications.
 
-## 🌐 Live Documentation Website (GitHub Pages)
+## Development and publishing
 
-This repository includes a ready-to-use **Docsify** documentation portal in [`docs/`](docs/).
-- Follow the [GitHub Pages Setup Guide](guides/github-pages-guide.md) to activate the site under **Settings -> Pages -> GitHub Actions**.
+See the [Pages maintenance guide](guides/github-pages-guide.md) for local preview, production deployment, validation commands, CDN dependencies, and storage limitations. The project remains a static Docsify site deployed through GitHub Actions; no backend or account infrastructure is provisioned.

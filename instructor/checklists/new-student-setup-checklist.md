@@ -19,8 +19,8 @@ Use this checklist for every new student enrolled in the training program.
 ## 🛠️ Pre-Onboarding Setup (Instructor Action)
 
 - [ ] Student has signed up for a free GitHub account.
-- [ ] Added student as a **Collaborator** on `https://github.com/sn8c29kyhh-star/seeker` (Permission: `Write` or `Triage`).
-- [ ] Created student's dedicated Kanban board or filtered view in [GitHub Projects](https://github.com/sn8c29kyhh-star/seeker/projects).
+- [ ] Created a separate private submission repository, copied the daily progress template into it, and granted the student access there.
+- [ ] Created a private progress board linked to the student’s submission repository and verified access.
 - [ ] Verified that GitHub Issues and custom labels (`daily-log`, `bug`, `blocker`) are visible to the student.
 - [ ] Personalized and sent the [Welcome & Day 0 Onboarding Message](../templates/student-welcome-message.md).
 

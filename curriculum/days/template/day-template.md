@@ -1,70 +1,46 @@
-# 📅 Day XX: [Module Title Here]
+# Day XX: [Topic]
 
-> **Theme**: [1 sentence summarizing today's key topic]  
-> **Prerequisites**: [List any tools or concepts needed before starting]
+> **Prerequisites:** [Earlier lesson or required tool]
+>
+> **Study time:** [Estimated learning and practice time]
 
----
+## Learning objectives
 
-## 🎯 Learning Objectives
+- [ ] [Explain a concept in your own words.]
+- [ ] [Demonstrate a specific Manual QA skill.]
 
-By the end of today, you will:
-- [ ] [Objective 1: Concept to understand]
-- [ ] [Objective 2: Practical skill to demonstrate]
-- [ ] [Objective 3: Tool or command to master]
-- [ ] [Objective 4: Hands-on exercise to complete]
+## Key ideas
 
----
+[Explain the concepts in plain language, with a worked example and common mistakes. No application programming required; include basic SQL only when relevant.]
 
-## ⏱️ Daily Schedule
+## Watch and read
 
-| Time Slot | Module | Focus Area |
-| :--- | :--- | :--- |
-| **09:00 - 09:30** | Standup & Planning | Review previous day, create today's GitHub Issue, assign to Kanban. |
-| **09:30 - 11:00** | Core Concept 1 | [Topic 1 deep dive] |
-| **11:00 - 12:30** | Core Concept 2 | [Topic 2 deep dive] |
-| **12:30 - 13:30** | *Lunch Break* | — |
-| **13:30 - 14:30** | Guided Walkthrough | [Code demo or live architecture exploration] |
-| **14:30 - 17:00** | Hands-On Coding | Complete exercises in `exercises/` directory. |
-| **17:00 - 18:00** | Wrap-Up & Submission | Open PR, write self-assessment, close GitHub Issue. |
+[Add checked resource links with a title, duration, relevant timestamps, and what to learn. Provide a text alternative for essential video content.]
 
----
+## Guided example
 
-## 📖 Core Concepts
+[Show a complete test case, bug report, SQL check, or Postman request. Include the requirement and expected outcome.]
 
-### 1. [Concept Name 1]
-[Explain the underlying principle, why it matters in production, and standard industry practices.]
+## Your exercise
 
-```python
-# Code example demonstrating the concept
-def example():
-    pass
-```
+[Specify the practice application or dataset, exact task, expected deliverable, and quality criteria. Clearly distinguish simulated defects from observed defects.]
 
-### 2. [Concept Name 2]
-[Provide clear, actionable explanations, diagrams, or best practices.]
+## Submit your work
 
----
+Upload the deliverable or share a mentor-accessible link in your private submission space. Do not submit a local computer path as the only evidence. Move the submission to `In Review`.
 
-## 🛠️ Hands-On Exercises
+## Review questions
 
-See the [`exercises/`](exercises/) folder for today's assignment instructions and automated tests.
+1. [Check understanding.]
+2. [Apply the concept to a new scenario.]
+3. [Explain and justify a testing decision.]
 
----
+## Assessment and next steps
 
-## ❓ Review & Self-Assessment Questions
+[The mentor sets the passing score and practical rubric before assigning this day. Keep answer keys outside the public repository. Record feedback and retry instructions if the student needs revision.]
 
-1. [Question 1 checking fundamental understanding]
-2. [Question 2 checking edge-case or troubleshooting ability]
-3. [Question 3 checking production-readiness knowledge]
+- [ ] Exercise submitted and review questions answered.
+- [ ] Mentor reviewed the work and recorded the result.
+- [ ] Any required corrections completed.
 
----
-
-## 🏁 Day Completion Checklist
-
-- [ ] Created GitHub Issue using the **Daily Progress Log** template.
-- [ ] Moved card to `In Progress` on the Kanban board.
-- [ ] Read all core concept documentation and articles.
-- [ ] Completed hands-on exercises in the `exercises/` folder.
-- [ ] Committed code with clean commit messages.
-- [ ] Answered self-assessment questions in the Issue comments.
-- [ ] Closed issue and moved card to `Done`.
+The portal’s “Mark my study complete” button is a browser-saved personal reminder. It does not award a passing score or enforce access to the next lesson.

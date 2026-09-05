@@ -36,9 +36,11 @@ sequenceDiagram
 
 ### Phase A: GitHub Workspace Setup (Before Day 0)
 1. **Repository Access**:
-   - Go to repo **Settings** -> **Collaborators**.
+   - Create a separate private submission repository for each student and give the student access there. Copy the daily progress issue template into that repository.
+   - Keep student scores and personal submissions out of the public curriculum repository.
+   - Go to that private repo **Settings** -> **Collaborators**.
    - Click **Add people** and invite the candidate by their GitHub username or email.
-   - Permissions: `Write` or `Triage` (allows creating and editing issues, assigning cards).
+   - Verify the student can create submissions and access their board using their account. Do not grant write access to the public curriculum just for progress tracking.
 2. **Setup Student's Kanban Tracking**:
    - Open [Projects Tab](https://github.com/sn8c29kyhh-star/seeker/projects).
    - If using **Single Shared Board**: Add a new Tab/View named `[Student's Name]` with filter: `assignee:[github-username]`.

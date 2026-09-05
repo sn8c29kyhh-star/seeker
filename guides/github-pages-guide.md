@@ -1,74 +1,64 @@
-# 🌐 Comprehensive Guide: Setting Up GitHub Pages
+# Publishing and maintaining the Seeker portal
 
-GitHub Pages turns your repository's Markdown documents into an interactive, beautifully styled website that anyone (mentors, candidates, team members) can access without cloning the repository.
+The portal uses Docsify to read the Markdown curriculum. GitHub Pages serves the public course; it does not store student accounts or assessment results.
 
----
+## Production deployment
 
-## 🚀 How to Enable GitHub Pages (Two Methods)
+In repository **Settings → Pages**, select **GitHub Actions** as the source. The existing `.github/workflows/pages.yml` validates navigation and progress logic, copies `curriculum/`, `guides/`, and `instructor/` into the published artifact, then deploys `docs/`.
 
-### Method A: Deploy via GitHub Actions (Recommended & Automated)
+Changes pushed to `main` under those directories, `docs/`, `scripts/`, `tests/`, the root README, or the Pages workflow trigger deployment. You can also run **Deploy GitHub Pages** manually from Actions.
 
-We have already configured an automated workflow file at [`.github/workflows/pages.yml`](../.github/workflows/pages.yml).
+Use the Actions deployment method. The `docs/curriculum`, `docs/guides`, and `docs/instructor` links are conveniences for local development; the workflow replaces them with real directories in the deployment artifact. Publishing `docs/` directly from a branch skips that packaging step.
 
-1. Push this repository to GitHub:
-   ```bash
-   git add .
-   git commit -m "feat: initial curriculum and docs setup"
-   git branch -M main
-   git remote add origin git@github.com:<your-username-or-org>/<repo-name>.git
-   git push -u origin main
-   ```
-2. In your GitHub repository:
-   - Click on the **Settings** tab (top menu bar).
-   - In the left sidebar, click on **Pages** (under the "Code and automation" section).
-   - Under **Build and deployment** -> **Source**, click the dropdown and select:
-     👉 **`GitHub Actions`**.
-3. That's it! GitHub Actions will trigger automatically on every push to `main` and deploy your docs site.
-4. Your site will be live at:
-   `https://<your-username-or-org>.github.io/<repo-name>/`
+## Local preview
 
----
+From the repository root:
 
-### Method B: Deploy Directly from the `/docs` Folder (Alternative)
-
-If you do not want to use GitHub Actions:
-
-1. Push your repository to GitHub.
-2. In your GitHub repository:
-   - Go to **Settings** -> **Pages**.
-   - Under **Build and deployment** -> **Source**, choose **Deploy from a branch**.
-   - Under **Branch**, select `main` and change the folder dropdown from `/ (root)` to **`/docs`**.
-   - Click **Save**.
-3. Within 1–2 minutes, your site URL will appear at the top of the Pages settings page!
-
----
-
-## 💻 How to Preview Locally on Your Laptop
-
-Before pushing changes to GitHub, you can preview the website locally on your computer.
-
-### Option 1: Using Python (Built-in on macOS & Linux)
-From the root of this repository, run:
 ```bash
-python3 -m http.server 3000 --directory docs
+python3 -m http.server 4317 --bind 127.0.0.1 --directory docs
 ```
-Open your browser and navigate to:
-👉 [http://localhost:3000](http://localhost:3000)
 
-### Option 2: Using Docsify CLI (Live Reload)
-If you have Node.js installed:
+Open [the local portal](http://127.0.0.1:4317/). On systems without working symlinks, prepare a disposable copy first:
+
 ```bash
-npx docsify-cli serve docs
+mkdir -p .cache/preview
+cp -RL docs/. .cache/preview/
+python3 -m http.server 4317 --bind 127.0.0.1 --directory .cache/preview
 ```
-This starts a live-reloading dev server at `http://localhost:3000`. Any edits made to Markdown files are instantly refreshed in your browser!
 
----
+Use a separate browser profile when testing progress so you do not overwrite a learner’s own study marks. Localhost and the published site have separate browser storage.
 
-## 🎨 How to Customize the Documentation Site
+## Editing the interface
 
-All site configurations are stored in [`docs/index.html`](../docs/index.html):
+- `docs/README.md`: learning-path home page.
+- `docs/_sidebar.md`: navigation. Keep links root-relative, beginning with `/`, so they work from nested lessons.
+- `docs/portal.css`: reading layout, colours, themes, mobile navigation, and print styles.
+- `docs/portal.js`: reading controls, lesson navigation, diagram rendering, and study reminders.
+- `docs/progress-store.js`: versioned browser progress validation and persistence.
+- `docs/index.html`: portal shell and pinned CDN dependencies.
 
-- **Repository Link**: Change `repo: ''` to your GitHub URL (e.g. `'https://github.com/your-username/seeker'`). An interactive Octocat icon will appear in the top-right corner.
-- **Site Name**: Change `name: '🚀 Jumpstart SWE'` to your program or team name.
-- **Theme Color**: In the `<style>` block, change `--theme-color: #2563eb;` to your preferred brand color.
-- **Adding Pages to the Sidebar**: Simply edit [`docs/_sidebar.md`](../docs/_sidebar.md) and add standard markdown links.
+Keep lesson content in `curriculum/`; do not edit generated copies in the deployment artifact. The course can be read without installing developer tools.
+
+## Study reminders and limitations
+
+Students can mark each main day lesson studied and undo the mark. The home page resumes the first unmarked day. The total starts at zero and measures self-reported study, not assessed mastery. Exercises and resource pages do not independently complete a day.
+
+Progress is stored under `seeker-study-v1` in localStorage. It belongs to this site’s origin and this browser profile, is shared by anyone using that profile, and can disappear when browser data is cleared. There is no login, device sync, submission upload, quiz engine, or mentor grade book. Storage failures are shown to the student; in that case changes last for the current page session only. Other tabs receive saved progress changes.
+
+The old phase selection is deliberately not converted into completed days: opening a phase did not prove that any lesson was studied. All lessons remain readable. No public JavaScript or localStorage value should be trusted to award a grade or enforce assessment prerequisites.
+
+Docsify, search, and Mermaid load from pinned jsDelivr URLs. Reading requires JavaScript and access to the Docsify CDN. Mermaid loads only on pages containing diagrams. If it cannot load or parse a diagram, the source remains available as text. System fonts avoid a separate font download. No new analytics or third-party tracking has been added by this redesign.
+
+## Validation
+
+Node.js 18+ and Python 3 are sufficient; no package installation is needed:
+
+```bash
+node --check docs/portal.js
+node --check docs/progress-store.js
+node --test tests/progress-store.test.cjs
+python3 scripts/check-site.py
+git diff --check
+```
+
+These checks cover progress data validation, save/reload/undo, storage failure, course routes, sidebar destinations, and local assets. They do not prove browser rendering, responsive layout, external exercise availability, or the complete student/mentor workflow. Before a cohort launch, exercise the site at desktop and phone widths with keyboard navigation, both themes, larger text, reloads, and a private test student account for submissions.

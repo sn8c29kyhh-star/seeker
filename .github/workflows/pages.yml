@@ -8,6 +8,11 @@ on:
       - "docs/**"
       - "curriculum/**"
       - "README.md"
+      - "guides/**"
+      - "instructor/**"
+      - "scripts/**"
+      - "tests/**"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -28,6 +33,13 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Validate portal
+        run: |
+          node --check docs/portal.js
+          node --check docs/progress-store.js
+          node --test tests/progress-store.test.cjs
+          python3 scripts/check-site.py
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
